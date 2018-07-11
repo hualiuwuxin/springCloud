@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: test
+
+#公共配置与profiles选择无关
+mybatis:
+  typeAliasesPackage: com.smt.bean
+  mapperLocations: classpath:mapper/*.xml
+  
+  
