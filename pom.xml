@@ -11,7 +11,7 @@
 		<module>serverA</module> 
 		<module>serverB</module>
 		<module>bean</module>
-	</modules> 
+	</modules>  
 
 	<!-- profiles -->
 	<profiles>
