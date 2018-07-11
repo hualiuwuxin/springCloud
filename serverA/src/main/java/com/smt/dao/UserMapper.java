@@ -1,4 +1,4 @@
-package com.smt.service.dao;
+package com.smt.dao;
 
 import com.smt.bean.User;
 import com.smt.bean.UserExample;

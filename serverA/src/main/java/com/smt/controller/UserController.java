@@ -16,6 +16,7 @@ public class UserController {
 	
 	@RequestMapping("getUserById")
 	public User getUserById(){
+		System.out.println("???????????");
 		return userService.getUserById(1L);
 	}
 	

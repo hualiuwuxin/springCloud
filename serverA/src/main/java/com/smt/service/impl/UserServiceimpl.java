@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smt.bean.User;
+import com.smt.dao.UserMapper;
 import com.smt.service.UserService;
-import com.smt.service.dao.UserMapper;
 
 @Service
 public class UserServiceimpl implements UserService {
@@ -18,8 +18,6 @@ public class UserServiceimpl implements UserService {
 		
 		
 		User user = userMapper.selectByPrimaryKey( 1L );
-		user.setId(1L);
-		user.setName("admin");
 		return user;
 	}
 
