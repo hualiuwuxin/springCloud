@@ -13,6 +13,30 @@
 		<module>bean</module>
 	</modules>
 
+	<!-- profiles -->
+	<profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profile.env>dev</profile.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.env>test</profile.env>
+            </properties>
+        </profile>
+        <profile>
+        	<activation>
+               <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>product</id>
+            <properties>
+                <profile.env>product</profile.env>
+            </properties>
+        </profile>
+    </profiles>
 
 	<!-- 指定jdk 的版本 -->
 	<build>
@@ -26,7 +50,10 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+
 		</plugins>
+
 	</build>
 
 
