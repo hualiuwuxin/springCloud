@@ -8,7 +8,7 @@
 
 	<modules>
 		<module>common</module>
-		<module>serverA</module>
+		<module>serverA</module> 
 		<module>serverB</module>
 		<module>bean</module>
 	</modules>
