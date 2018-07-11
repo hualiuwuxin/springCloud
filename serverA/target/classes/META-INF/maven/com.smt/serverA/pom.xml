@@ -6,8 +6,10 @@
 		<artifactId>springCloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-
 	<artifactId>serverA</artifactId>
+	<version>${serverA.version}_${profile.env}</version>
+	<packaging>jar</packaging>
+	
 
 	<!-- springboot -->
 	<dependencyManagement>
@@ -25,9 +27,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.smt</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>bean</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${bean.version}</version>
 		</dependency>
 
 		<!-- spring web -->

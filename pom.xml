@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.smt</groupId>
@@ -8,35 +9,44 @@
 
 	<modules>
 		<module>common</module>
-		<module>serverA</module> 
+		<module>serverA</module>
 		<module>serverB</module>
 		<module>bean</module>
-	</modules>  
+	</modules>
+
+	<properties>
+		<common.version>0.0.1</common.version>
+		<serverA.version>0.0.1</serverA.version>
+		<serverB.version>0.0.1</serverB.version>
+		<bean.version>0.0.1</bean.version>
+	</properties>
 
 	<!-- profiles -->
 	<profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <profile.env>dev</profile.env>
-            </properties>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <profile.env>test</profile.env>
-            </properties>
-        </profile>
-        <profile>
-        	<activation>
-               <activeByDefault>true</activeByDefault>
-            </activation>
-            <id>product</id>
-            <properties>
-                <profile.env>product</profile.env>
-            </properties>
-        </profile>
-    </profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profile.env>dev</profile.env>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<profile.env>test</profile.env>
+			</properties>
+		</profile>
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<id>product</id>
+			<properties>
+				<profile.env>product</profile.env>
+			</properties>
+		</profile>
+	</profiles>
+
+
 
 	<!-- 指定jdk 的版本 -->
 	<build>
@@ -50,9 +60,48 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<encoding>utf-8</encoding>
+					<useDefaultDelimiters>true</useDefaultDelimiters>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<id>default-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/classes</outputDirectory>
+							<useDefaultDelimiters>false</useDefaultDelimiters>
+							<delimiters>
+								<delimiter>#</delimiter>
+							</delimiters>
+							<resources>
+								<resource>
+									<directory>src/main/resources/</directory>
+									<filtering>true</filtering>
+								</resource>
+								<resource>
+									<directory>src/main/resources.${profile.env}</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 
 		</plugins>
+
 
 	</build>
 
