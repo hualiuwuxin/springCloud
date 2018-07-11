@@ -1,10 +1,15 @@
 spring:
   profiles:
     active: #profile.env#
-    #active: #profile.env#
-    #active: dev
+
+server:
+  port: 8081
+  context-path: /serverA
+  
+
 mybatis:
   typeAliasesPackage: com.smt.bean
   mapperLocations: classpath:mapper/*.xml
+  
   
   

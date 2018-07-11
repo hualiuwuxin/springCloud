@@ -1,8 +1,6 @@
 spring:
-  profiles: dev
-
-  datasource:
-    url: jdbc:mysql://118.24.0.161:3306/test
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    datasource: 
+      url: jdbc:mysql://118.24.0.161:3306/test
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
