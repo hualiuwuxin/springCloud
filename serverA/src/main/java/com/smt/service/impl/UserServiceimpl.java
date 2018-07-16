@@ -14,7 +14,7 @@ public class UserServiceimpl implements UserService {
 	UserMapper userMapper;
 	
 	@Override
-	public User getUserById(long l) {
+	public User getUserById(long id) {
 		
 		
 		User user = userMapper.selectByPrimaryKey( 1L );

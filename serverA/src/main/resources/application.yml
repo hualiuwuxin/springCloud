@@ -3,7 +3,7 @@ spring:
     active: ${profile.env}
 
 server:
-  port: 8081
+  port: 8080
   context-path: /serverA
   
 
