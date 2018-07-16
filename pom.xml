@@ -24,6 +24,9 @@
 	<!-- profiles -->
 	<profiles>
 		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<id>dev</id>
 			<properties>
 				<profile.env>dev</profile.env>
@@ -36,9 +39,6 @@
 			</properties>
 		</profile>
 		<profile>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<id>product</id>
 			<properties>
 				<profile.env>product</profile.env>
@@ -50,6 +50,12 @@
 
 	<!-- 指定jdk 的版本 -->
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -60,49 +66,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>utf-8</encoding>
-					<useDefaultDelimiters>true</useDefaultDelimiters>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.7</version>
-				<executions>
-					<execution>
-						<id>default-resources</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>target/classes</outputDirectory>
-							<useDefaultDelimiters>false</useDefaultDelimiters>
-							<delimiters>
-								<delimiter>#</delimiter>
-							</delimiters>
-							<resources>
-								<resource>
-									<directory>src/main/resources/</directory>
-									<filtering>true</filtering>
-								</resource>
-								<resource>
-									<directory>src/main/resources.${profile.env}</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-
 		</plugins>
-
-
 	</build>
 
 
