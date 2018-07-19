@@ -193,4 +193,12 @@
       age = #{age,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+   <update id="up" parameterType="com.smt.bean.User">
+	    update user
+	    set
+	      age = age+1
+	    where id = #{id,jdbcType=BIGINT}
+	  </update>
+  
 </mapper>

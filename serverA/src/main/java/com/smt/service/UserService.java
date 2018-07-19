@@ -6,4 +6,8 @@ public interface UserService {
 
 	User getUserById(long id );
 
+	User update(long l);
+
+	User insert(long l);
+
 }

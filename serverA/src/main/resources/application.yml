@@ -8,7 +8,6 @@ server:
   
 
 mybatis:
-  typeAliasesPackage: com.smt.bean
   mapperLocations: classpath:mapper/*.xml
   
   
