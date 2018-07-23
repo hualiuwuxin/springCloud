@@ -1,6 +1,11 @@
 spring:
   profiles:
     active: ${profile.env}
+  rabbitmq: 
+    host: 118.24.0.161
+    port: 5672
+    username: zyk
+    password: zyk123
 
 server:
   port: 8080
@@ -9,6 +14,8 @@ server:
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
+  
+  
   
   
   
