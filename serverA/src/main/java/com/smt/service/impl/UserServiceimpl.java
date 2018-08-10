@@ -49,7 +49,7 @@ public class UserServiceimpl implements UserService {
 		user.setAge(1);
 		user.setVersion(1);
 		userMapper.insert(user);
-		return null;
+		return user;
 	}
 
 }
